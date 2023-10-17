@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity, ScrollView, SafeAreaView} from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons , MaterialIcons } from "@expo/vector-icons";
 import React from 'react';
 
-const setting = () => {
+export default function setting({navigation})  {
   const accountItems = [
     {
       icon: "person-outline",
@@ -28,7 +28,7 @@ const setting = () => {
     {
       icon: "info-outline",
       text: "Terms and Policies"
-     
+
     },
   ];
 
@@ -73,7 +73,10 @@ const setting = () => {
       </Text>
     </TouchableOpacity>
   );
-
+// icon go back
+const handleIconPress = () => {
+  navigation.navigate('profile');
+};
   return (
     <SafeAreaView
     style={{
@@ -99,10 +102,13 @@ const setting = () => {
 
      
     </View>
-    <ScrollView style={{ marginHorizontal: 12 }}>
+    <ScrollView style={{ marginHorizontal: 12 ,marginTop:30}}>
+    <TouchableOpacity onPress={handleIconPress}>
+    <Ionicons style={{marginTop:10}} name="ios-arrow-back" size={35} color="#52575D"></Ionicons>
+    </TouchableOpacity>
       {/* Account Settings */}
       <View style={{ marginBottom: 12 }}>
-        <Text style={{  fontSize: 16, lineHeight: 20, marginVertical: 10 }}>Account</Text>
+        <Text style={{  fontSize: 16, lineHeight: 20, marginVertical: 10,marginTop:10 }}>Account</Text>
         <View
           style={{
             borderRadius: 12,
@@ -178,4 +184,3 @@ const setting = () => {
   );
 }
 
-export default setting;

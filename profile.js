@@ -33,8 +33,8 @@ export default function profile({navigation}) {
         </View>
         <View style={styles.infoContainer}>
           <Text style={[styles.text,{fontWeight:"500",fontSize:29}]}>Bùi Minh Đức</Text>
-          <Text style={[styles.text,{color:"#AEB5BC",fontSize:16}]}>Programmer</Text>
-          <Text style={[styles.text,{color:"#AEB5BC",fontSize:16}]}>Contact work : ducprime3172003@gmail.com!</Text>
+          <Text style={[styles.text,{color:"#a9a9a9",fontSize:16}]}>Programmer</Text>
+          <Text style={[styles.text,{color:"#a9a9a9",fontSize:16}]}>Contact work : ducprime3172003@gmail.com!</Text>
         </View>
         {/* Touchableopacity  */}
         <View style={styles.buttonfollow}> 
@@ -185,7 +185,7 @@ export default function profile({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5E6',
+    backgroundColor: '#FFF8',
      marginTop: 30
   },
   text: {
@@ -335,6 +335,5 @@ const styles = StyleSheet.create({
     textAlign: 'center', 
   
   }
- 
- 
+
 });
