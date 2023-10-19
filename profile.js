@@ -51,11 +51,9 @@ export default function profile({navigation}) {
             <TouchableOpacity
                   style={styles.button}
                   onPress={onPress}
-                  
                   >
               <Text style={styles.buttonText}>
                 Message!
-                
               </Text>
             </TouchableOpacity>
           </View>

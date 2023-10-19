@@ -73,7 +73,7 @@ export default function setting({navigation})  {
       </Text>
     </TouchableOpacity>
   );
-// icon go back
+                                   // icon go back
 const handleIconPress = () => {
   navigation.navigate('profile');
 };

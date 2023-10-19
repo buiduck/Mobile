@@ -5,6 +5,8 @@ import profile from './profile';
 import setting from './setting'; 
 import signup from './signup';
 import forgotpass from './forgotpass';
+import addfriend from './addfriend';
+import listfriend from './listfriend';
 
 
 const Stack = createStackNavigator();
@@ -16,7 +18,9 @@ function App() {
         <Stack.Screen name="profile" component={profile} />
         <Stack.Screen name="setting" component={setting} />
         <Stack.Screen name="signup" component={signup} />
-        <Stack.Screen name="forgotpass" component={forgotpass} />    
+        <Stack.Screen name="addfriend" component={addfriend}/>
+        <Stack.Screen name="listfriend" component={listfriend} />
+        <Stack.Screen name="forgotpass" component={forgotpass}/>  
       </Stack.Navigator>
     </NavigationContainer>
   );
