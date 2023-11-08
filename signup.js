@@ -1,4 +1,4 @@
-import { View, Text,TouchableOpacity,SafeAreaView,TextInput,onPress,Image ,Pressable,ScrollView} from 'react-native'
+import { View, Text,TouchableOpacity,SafeAreaView,TextInput,onPress,Image,ScrollView} from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons } from "@expo/vector-icons";
 
@@ -8,7 +8,7 @@ const signup = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    number: '',
+    fullname: '',
     password: '',
   });
   const [errors,setErrors] = useState({});
@@ -17,16 +17,16 @@ const signup = () => {
     const newErrors = {};
 
     if (!formData.username) {
-      newErrors.username = 'Vui lòng nhập tên người dùng';
+      newErrors.username = 'Vui lòng nhập tên người dùng !';
     }
 
     if (!formData.email || !formData.email.includes('@')) {
       newErrors.email = 'Email không hợp lệ !' ;
     }
    //
-    const phonePattern = /^[0-9]{10}$/;
-    if (!formData.number || !phonePattern.test(formData.number)) {
-        newErrors.number = 'Số điện thoại không hợp lệ !';
+    
+    if (!formData.fullname ) {
+        newErrors.fullname = 'Vui lòng nhập họ và tên!';
       }
 
     if (formData.password.length < 4) {
@@ -43,11 +43,11 @@ const signup = () => {
 
 
   return (
-    <SafeAreaView style={{ backgroundColor:"#000"}}>
+    <SafeAreaView style={{ backgroundColor:"#fffaf0"}}>
         <ScrollView>
      <View style={{marginBottom:15}}>
-      <Text style={{ color:"#fff8dc", marginLeft:10, marginTop:10,marginBottom:7, fontSize:25, fontWeight:"500"}}>Create Account</Text>
-      <Text style={{color:"#dcdcdc",fontSize:15,marginLeft:8,marginBottom:10}}> Connect with your friend today!</Text>
+      <Text style={{ color:"#000", marginLeft:10, marginTop:10,marginBottom:7, fontSize:25, fontWeight:"500"}}>Create Account</Text>
+      <Text style={{color:"#000",fontSize:15,marginLeft:8,marginBottom:10}}> Connect with your friend today!</Text>
         <View style={{  paddingTop: 15,
            width:113,
            height:113,
@@ -59,10 +59,10 @@ const signup = () => {
 
    {/* Username */}
                 <View style={{ marginBottom: 3, marginLeft:11}}>
-                    <Text style={{ color: "#fff8dc",fontSize: 16, fontWeight: 400, marginVertical:8}}>Username</Text>
-                    <View style={{ width: "95%",height: 48,borderColor: "#f5f5dc",borderWidth: 1, borderRadius: 8,alignItems: "center",
+                    <Text style={{ color: "#2f4f4f",fontSize: 16, fontWeight: 400, marginVertical:8}}>Username</Text>
+                    <View style={{ width: "95%",height: 48,borderColor: "#000",borderWidth: 1, borderRadius: 8,alignItems: "center",
                           justifyContent: "center",paddingLeft: 32}}>
-                        <TextInput color="#fff" placeholder='Enter your Username' placeholderTextColor="#F6F6F6"
+                        <TextInput color="#000" placeholder='Enter your Username' placeholderTextColor="#696969"
                            value={formData.username}
                            onChangeText={(text) => setFormData({ ...formData, username: text })}
                            style={{width: "100%"  }}/>
@@ -71,10 +71,10 @@ const signup = () => {
                 </View>
    {/* Email */}
                 <View style={{ marginBottom: 3, marginLeft:11}}>
-                    <Text style={{ color: "#fff8dc",fontSize: 16, fontWeight: 400, marginVertical:8}}>Email</Text>
-                    <View style={{ color: "#fff",width: "95%",height: 48,borderColor: "#f5f5dc",borderWidth: 1, borderRadius: 8,alignItems: "center",
+                    <Text style={{ color: "#2f4f4f",fontSize: 16, fontWeight: 400, marginVertical:8}}>Email</Text>
+                    <View style={{ color: "#000",width: "95%",height: 48,borderColor: "#000",borderWidth: 1, borderRadius: 8,alignItems: "center",
                           justifyContent: "center",paddingLeft: 32}}>
-                        <TextInput   color="#fff" placeholder='Enter your Email' placeholderTextColor="#f6f6f6" keyboardType='email-address'
+                        <TextInput   color="#000" placeholder='Enter your Email' placeholderTextColor="#696969" keyboardType='email-address'
                         value={formData.email}
                         onChangeText={(text) => setFormData({ ...formData, email: text })}
                            style={{width: "100%"  }}/>
@@ -82,26 +82,24 @@ const signup = () => {
                     {errors.email && <Text style={{ color: 'red',marginTop:2 }}>{errors.email}</Text>}
 
                 </View>
-    {/* Number */}
+    {/* Full name */}
                 <View style={{ marginBottom: 3, marginLeft:11}}>
-                    <Text style={{ color: "#fff8dc",fontSize: 16, fontWeight: 400, marginVertical:8}}>Mobile number</Text>
-                    <View style={{ width: "95%",height: 48,borderColor: "#f5f5dc",borderWidth: 1, borderRadius: 8, alignItems: "center",
+                    <Text style={{ color: "#2f4f4f",fontSize: 16, fontWeight: 400, marginVertical:8}}>Full name</Text>
+                    <View style={{ width: "95%",height: 48,borderColor: "#000",borderWidth: 1, borderRadius: 8, alignItems: "center",
                         flexDirection: "row", justifyContent: "space-between",paddingLeft: 32}}>
-                        <TextInput color="#fff" placeholder='+84' placeholderTextColor="#f5f5dc" keyboardType='numeric' style={{width: "12%", 
-                                borderRightWidth: 1,borderRightColor:"#f5f5dc", height: "100%" }}/>
-                        <TextInput color="#fff" placeholder='Enter your phone Number' placeholderTextColor="#f6f6f6" keyboardType='numeric'
-                        value={formData.number}
-                        onChangeText={(text) => setFormData({ ...formData, number: text })}
+                        <TextInput color="000" placeholder='Enter your Full name' placeholderTextColor="#696969" 
+                        value={formData.fullname}
+                        onChangeText={(text) => setFormData({ ...formData, fullname: text })}
                             style={{ width: "80%"}}/>
                     </View>
-                    {errors.number && <Text style={{ color: 'red',marginTop:2 }}>{errors.number}</Text>}
+                    {errors.fullname && <Text style={{ color: 'red',marginTop:2 }}>{errors.fullname}</Text>}
                 </View>
     {/* Password */}
                 <View style={{ marginBottom: 15, marginLeft:11}}>
-                    <Text style={{ color: "#fff8dc",fontSize: 16, fontWeight: 400, marginVertical:8}}>Passsword</Text>
-                    <View style={{ width: "95%",height: 48,borderColor: "#f5f5dc",borderWidth: 1, borderRadius: 8,alignItems: "center",
+                    <Text style={{ color: "#2f4f4f",fontSize: 16, fontWeight: 400, marginVertical:8}}>Passsword</Text>
+                    <View style={{ width: "95%",height: 48,borderColor: "#000",borderWidth: 1, borderRadius: 8,alignItems: "center",
                           justifyContent: "center",paddingLeft: 32}}>
-                        <TextInput  color="#fff" placeholder='Enter your Password' placeholderTextColor="#f6f6f6" secureTextEntry={isPasswordShown}
+                        <TextInput  color="#000" placeholder='Enter your Password' placeholderTextColor="#696969" secureTextEntry={isPasswordShown}
                                 value={formData.password}
                                 onChangeText={(text) => setFormData({ ...formData, password: text })}
                            style={{width: "100%"  }}/>
@@ -110,7 +108,7 @@ const signup = () => {
                             onPress={() => setIsPasswordShown(!isPasswordShown)}
                             style={{position: "absolute", right: 12 }}>
                             {isPasswordShown == true ? 
-                            (<Ionicons name="eye-off" size={24} color="#f5f5dc"/>) : (<Ionicons name="eye" size={24} color="#f5f5dc"/>)
+                            (<Ionicons name="eye-off" size={24} color="#000"/>) : (<Ionicons name="eye" size={24} color="#000"/>)
                             }
                         </TouchableOpacity>  
                     </View>
@@ -118,7 +116,7 @@ const signup = () => {
                 </View>
     {/*  */}
              <TouchableOpacity
-                  style={{ backgroundColor: '#FFCB74',
+                  style={{ backgroundColor: '#1e90ff',
                   marginTop:4,
                   marginBottom:3,
                   borderRadius:10,               
@@ -127,7 +125,7 @@ const signup = () => {
                   height:35}}
                   onPress={validateForm}
                   >
-                <Text style={{color: '#2F2F2F', 
+                <Text style={{color: '#fff', 
                             fontWeight: 'bold', 
                             marginTop:5.5,
                             fontSize: 16, 
@@ -137,23 +135,23 @@ const signup = () => {
              </TouchableOpacity>
       {/*  */} 
              <View style={{flexDirection: "row", justifyContent: "center", marginVertical: 4}}>
-                    <Text style={{marginTop:15, color:"#dcdcdc",fontSize:16,textAlign:"center"}}>Already have an account?</Text>
-                    <Pressable 
+                    <Text style={{marginTop:15, color:"#696969",fontSize:16,textAlign:"center"}}>Already have an account?</Text>
+                    <TouchableOpacity
                         onPress={onPress}>
                         <Text style={{
                             fontSize: 16,
-                            color:"#00ffff",
+                            color:"blue",
                             marginLeft: 6,
                             marginTop:14
                         }}>
                            To login
                         </Text>
-                    </Pressable>
+                    </TouchableOpacity>
              </View>
       {/*  */}
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 20 ,marginTop:10}}>
                     <View style={{  flex: 1, height: 1, backgroundColor: "#CCCCCC", marginHorizontal:10 }}/>
-                    <Text style={{ fontSize: 14 ,color:"#f5f5dc"}}>Or Sign up with</Text>
+                    <Text style={{ fontSize: 14 ,color:"#000"}}>Or Sign up with</Text>
                     <View style={{ flex: 1, height: 1, backgroundColor: "#CCCCCC", marginHorizontal:10 }}/>
                 </View>
       {/*  */}
@@ -166,14 +164,14 @@ const signup = () => {
                         onPress={onPress}
                         style={{
                             flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row',height: 55,
-                             width:150,  borderWidth: 1, borderColor: "#f5f5dc",marginRight: 4,marginLeft:5, borderRadius: 10
+                             width:150,  borderWidth: 1, borderColor: "#000",marginRight: 4,marginLeft:5, borderRadius: 10
                         }}>
                         <Image
                             source={require("./image/facebook_480px.png")}
                             style={{height: 36,  width: 36,   marginRight: 8 }}
                             resizeMode='contain'
                         />
-                        <Text style={{color:"#f5f5dc"}}>Facebook</Text>
+                        <Text style={{color:"#000"}}>Facebook</Text>
           </TouchableOpacity>
        
           <TouchableOpacity
@@ -186,7 +184,7 @@ const signup = () => {
                             height: 55,
                             width:150, 
                             borderWidth: 1,
-                            borderColor: "#f5f5dc",
+                            borderColor: "#000",
                             marginRight: 4,
                             marginLeft:5,
                             borderRadius: 10
@@ -197,7 +195,7 @@ const signup = () => {
                             style={{ height: 36,width: 36,marginRight: 8 }}
                             resizeMode='contain'
                         />
-                        <Text style={{color:"#f5f5dc"}}>Google</Text>
+                        <Text style={{color:"#000"}}>Google</Text>
           </TouchableOpacity>   
       </View>
       {/*  */}

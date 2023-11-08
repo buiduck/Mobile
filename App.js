@@ -18,7 +18,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="instruct" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="signup" screenOptions={{headerShown:false}}>
         <Stack.Screen name="profile" component={profile} />
         <Stack.Screen name="setting" component={setting} />
         <Stack.Screen name="signup" component={signup} />
@@ -29,7 +29,6 @@ function App() {
         <Stack.Screen name="supportcenter" component={supportcenter}/> 
         <Stack.Screen name="termsofuse" component={termsofuse}/> 
         <Stack.Screen name="aboutus" component={aboutus}/> 
- 
       </Stack.Navigator>
     </NavigationContainer>
   );
